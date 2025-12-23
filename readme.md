@@ -55,7 +55,8 @@ Following the protocol in *The Missing Link?*, we apply a tiered decision logic 
 * [2] Edelman, B., Luca, M., & Svirsky, D. (2017). Racial Discrimination in the Sharing Economy: Evidence from a Field Experiment. *American Economic Journal: Applied Economics*, 9(2), 1-22.
 * [3] Wang, Y., Shin, J., & Zhang, C. (2025). *The Value of Internal Labor Markets: Evidence from LinkedIn Profiles and U.S. Inventors*. [Working Paper].
 * [4] *The Missing Link? Using LinkedIn Data to Measure Race, Ethnic, and Gender Composition of Company Workforces*. (n.d.).
-* [4] Taigman, Y., Yang, M., Ranzato, M., & Wolf, L. (2014). DeepFace: Closing the Gap to Human-Level Performance in Face Verification. *Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)*.
+* [5] Taigman, Y., Yang, M., Ranzato, M., & Wolf, L. (2014). DeepFace: Closing the Gap to Human-Level Performance in Face Verification. *Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)*
+* [6] Organizational Diversity Database: An Open Dataset on Firm Racial and Gender Composition.
 
 **Software & Data**
 * Kaplan, J. (2022). *predictrace: Predict the Race and Gender of a Person from Their Name* [R package].
