@@ -3,7 +3,7 @@
 ## Project Overview
 This repository documents the technical approach used to infer race and ethnicity from large-scale professional profile data (e.g., LinkedIn). The methodology employs a hybrid approach, utilizing both name-based classifiers and computer vision (profile pictures) to maximize accuracy across different demographic groups.
 
-This approach is based on a review of recent literature, including *The Missing Link?* (Wang et al.), *LinkedOut?*, and the *Organizational Diversity Database*.
+This approach is based on a review of recent literature, including *LinkedOut?* (Evsyukova et al.), *The Missing Link?* (Wang et al.), and the *Organizational Diversity Database*.
 
 ## Methodology
 
@@ -20,16 +20,16 @@ Our review of the literature indicates that relying on a single data source is i
 ### 2. Algorithmic Workflow
 
 #### A. Name-Based Inference (Asian & Hispanic)
-* **Source:** U.S. Census Bureau data (race shares of last names) and Revelio vendor data.
+* **Source:** U.S. Census Bureau data (race shares of last names).
 * **Logic:** The model calculates the probability of a name belonging to a specific group based on census frequency.
-* **Handling Uncommon Names:** If a name is not found in the U.S. Census, the model utilizes ethnic distribution data from the user's country or location.
-* **Tools:** `predictrace`, `rethnicity`, `gender` (R packages).
+* **Tools:**
+    * **predictrace (R):** Used for all name-based operations regarding gender and race, as established in the *LinkedOut?* methodology.
+    * **rethnicity (R) / gender (R):** Alternative packages cited in related literature for measuring ethnic composition.
 
 #### B. Image-Based Inference (Black & White)
 * **Tools:**
-    * **DeepFace (Python):** Utilizing the **VGG-Face** model and "FairFace" training datasets (Taigman et al., 2014).
+    * **DeepFace (Python):** Utilizing the **VGG-Face** model and "FairFace" training datasets to obtain information on race, age, and gender.
     * **OpenCV:** Used for initial face detection and image processing.
-    * **Face++ API:** Alternative commercial tool cited in sharing economy literature.
 * **Scale:** Methodologies have been validated on datasets exceeding 200 million images.
 
 #### C. Conflict Resolution
@@ -51,12 +51,11 @@ Following the protocol in *The Missing Link?*, we apply a tiered decision logic 
 ## References
 
 **Literature & Working Papers**
-* Edelman, B., Luca, M., & Svirsky, D. (2017). Racial Discrimination in the Sharing Economy: Evidence from a Field Experiment. *American Economic Journal: Applied Economics*, 9(2), 1-22.
-* Wang, Y., Shin, J., & Zhang, C. (2025). *The Value of Internal Labor Markets: Evidence from LinkedIn Profiles and U.S. Inventors*. [Working Paper].
-* *The Missing Link? Using LinkedIn Data to Measure Race, Ethnic, and Gender Composition of Company Workforces*. (n.d.).
-* *Organizational Diversity Database: An Open Dataset on Firm Racial and Gender Composition*. (n.d.).
+* [1] Evsyukova, Y., Rusche, F., & Mill, W. (2025). LinkedOut? A Field Experiment on Discrimination in Job Network Formation. *The Quarterly Journal of Economics*, 140(1), 283-334.
+* [2] Edelman, B., Luca, M., & Svirsky, D. (2017). Racial Discrimination in the Sharing Economy: Evidence from a Field Experiment. *American Economic Journal: Applied Economics*, 9(2), 1-22.
+* [3] Wang, Y., Shin, J., & Zhang, C. (2025). *The Value of Internal Labor Markets: Evidence from LinkedIn Profiles and U.S. Inventors*. [Working Paper].
+* [4] Taigman, Y., Yang, M., Ranzato, M., & Wolf, L. (2014). DeepFace: Closing the Gap to Human-Level Performance in Face Verification. *Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)*.
 
 **Software & Data**
 * Kaplan, J. (2022). *predictrace: Predict the Race and Gender of a Person from Their Name* [R package].
-* Taigman, Y., Yang, M., Ranzato, M., & Wolf, L. (2014). DeepFace: Closing the Gap to Human-Level Performance in Face Verification. *Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)*.
 * U.S. Census Bureau. (2022). *Decennial Census Data on Last Names and Race*. U.S. Department of Commerce.
