@@ -54,6 +54,7 @@ Following the protocol in *The Missing Link?*, we apply a tiered decision logic 
 * [1] Evsyukova, Y., Rusche, F., & Mill, W. (2025). LinkedOut? A Field Experiment on Discrimination in Job Network Formation. *The Quarterly Journal of Economics*, 140(1), 283-334.
 * [2] Edelman, B., Luca, M., & Svirsky, D. (2017). Racial Discrimination in the Sharing Economy: Evidence from a Field Experiment. *American Economic Journal: Applied Economics*, 9(2), 1-22.
 * [3] Wang, Y., Shin, J., & Zhang, C. (2025). *The Value of Internal Labor Markets: Evidence from LinkedIn Profiles and U.S. Inventors*. [Working Paper].
+* [4] *The Missing Link? Using LinkedIn Data to Measure Race, Ethnic, and Gender Composition of Company Workforces*. (n.d.).
 * [4] Taigman, Y., Yang, M., Ranzato, M., & Wolf, L. (2014). DeepFace: Closing the Gap to Human-Level Performance in Face Verification. *Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)*.
 
 **Software & Data**
