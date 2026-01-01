@@ -1,5 +1,3 @@
-Based on the papers we have reviewed, here are **5 concrete proposals** for your mentor. These points synthesize the "best practices" and "lessons learned" from the literature to ensure your research avoids common pitfalls.
-
 ### 1. Proposal: Adopt a "Cascading" Hybrid Model
 
 **The Insight:** Single-method inference is prone to specific failures (e.g., *DeepFace* struggles with Hispanic identification; *BISG* struggles with Black identification).
