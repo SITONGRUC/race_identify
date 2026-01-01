@@ -1,3 +1,28 @@
+Based on the papers we have reviewed, here are **5 concrete proposals** for your mentor. These points synthesize the "best practices" and "lessons learned" from the literature to ensure your research avoids common pitfalls.
+
+### 1. Proposal: Adopt a "Cascading" Hybrid Model
+
+**The Insight:** Single-method inference is prone to specific failures (e.g., *DeepFace* struggles with Hispanic identification; *BISG* struggles with Black identification).
+**The Proposal:** We should not rely on one tool. Instead, we should build a decision hierarchy similar to the *Corporate Workforce* paper:
+
+* **Step A:** Use **Images** as the primary signal for identifying **Black** individuals (where names are weak).
+* **Step B:** Use **Names** as the primary signal for identifying **Hispanic** and **Asian** individuals (where phenotypes can be ambiguous).
+* **Step C:** Only accept a classification if the confidence score is high (e.g., >90%). If there is a conflict between Name and Image, flag for manual review.
+
+### 2. Proposal: Implement a Specific "South Asian" Filter
+
+**The Insight:** A major recurring error in the literature (e.g., *Venture Funding* paper) is that image algorithms frequently misclassify darker-skinned South Asian individuals as Black.
+**The Proposal:** We must run a **pre-processing step** using a name classifier to identify and exclude (or separately categorize) South Asian surnames. This will significantly reduce our "False Positive" rate for Black categorization.
+
+### 3. Proposal: Create a "Ground Truth" Validation Sample
+
+**The Insight:** The *Regulatory Arbitrage* and *Venture Funding* papers showed that algorithms can have error rates as high as 40%. We cannot blindly trust the output.
+**The Proposal:** We should budget time to manually review a random sample of our data (e.g., **500–1,000 profiles**) to establish our own error rate.
+
+* *Why this helps:* It allows us to report a "Precision/Recall" score in our final paper, defending us against critics who might question our data quality.
+
+
+
 | Study Context | Primary Data | Algorithms Used | The "Inference Problem" (Key Errors) | The "Fix" (Mitigation Strategy) |
 |---|---|---|---|---|
 | Venture Funding | LinkedIn Photos | DeepFace + Name Embeddings | Skin-tone analysis misclassified South Asians as Black and light-skinned Black founders as White. | 100% manual review of 150k photos; checked "secondary signals" (HBCUs, affinity groups). |
