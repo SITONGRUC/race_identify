@@ -340,3 +340,51 @@ The authors employed a hybrid approach depending on the specific demographic gro
 - **Aggregation:** Unlike many studies that look at individuals, this paper aggregates the inferred data to the **firm-occupation-year level** to create a dataset on organizational diversity.
 - **Coverage Threshold:** To ensuring the data was representative, they applied an **"EEO score threshold" of 0.3**. This means they only included firms in their analysis if at least **30%** of the firm's total workforce was represented on LinkedIn.
 - **Reference to Prior Work:** The authors note that the detailed technical procedures for the name and photo inference are documented in a related paper (Wang, Shin, and Zhang 2025).
+
+
+
+# A Calibrated BISG for Inferring Race from Surname and Geolocation (2025)
+
+*McCartan, Goldin, Ho, and Imai (Columbia University / Stanford)*
+
+**1. Data Source**
+
+- **Primary Inputs:** Voter registration files from states that collect self-reported race (Florida, North Carolina) to act as "ground truth."
+- **Supplementary:** U.S. Census Bureau surname lists and geolocation data.
+
+**2. Algorithms**
+
+- **Standard BISG:** The authors critique the standard "Bayesian Improved Surname Geocoding" model.
+- **Calibrated (Raking) Model:** They introduce a new algorithm that uses "iterative proportional fitting" (raking). This adjusts the standard BISG predictions so that they match known aggregate demographics of a state (e.g., if the Census says a state is 15% Black, the sum of the individual predictions must equal 15%).
+
+**3. Inference Behavior (Rate & Errors)**
+
+- **The Independence Failure:** They prove that the standard BISG model fails because it falsely assumes surname and location are independent. (e.g., A "Washington" living in a Black neighborhood is statistically different from a "Washington" in a White neighborhood, but standard BISG treats the name "Washington" the same regardless of where it is).
+- **Error Rate:** This independence failure causes standard BISG to be **poorly calibrated** for minority groups, often over-predicting White identity in diverse neighborhoods.
+
+**4. Special Steps**
+
+- **Voter File Validation:** Unlike studies that assume the algorithm works, this study used the North Carolina voter file (where race is self-reported) to mathematically prove the bias of the standard method.
+- **Open Source Tool:** They released an R package (`ziplase`) that implements this "raking" correction to fix the errors found in previous literature.
+
+# The Limits of Algorithmic Measures of Race in Studies of Outcome Disparities (2024)
+
+*Jagadeesan and Kearney (Harvard Business School Working Paper)*
+
+**1. Data Source**
+
+- **Simulation & Administrative Data:** They modeled credit access disparities using both real PPP loan data and theoretical simulations.
+
+**2. Algorithms**
+
+- **Attenuation Bias Model:** This is a theoretical paper that analyzes the *mathematical consequences* of using BISG or DeepFace.
+
+**3. Inference Behavior (Rate & Errors)**
+
+- **Systematic vs. Random Error:** They argue that prediction errors are *not* random. Algorithms are systematically less accurate for Black borrowers than for White or Asian borrowers.
+- **Attenuation Bias:** Because the algorithm is "noisier" for Black individuals, any study measuring discrimination will mathematically **underestimate** the true level of discrimination.
+- **Key Stat:** They estimate that standard algorithms bias the measured racial disparity downward by **30–50%** (confirming the "Regulatory Arbitrage" paper's findings).
+
+**4. Special Steps**
+
+- **Correction Formula:** They propose a specific statistical correction (errors-in-variables model) that researchers should apply to "inflate" their discrimination estimates back to the true level.
