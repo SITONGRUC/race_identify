@@ -1,3 +1,31 @@
+# **The Immigrant Next Door: Exposure, Generosity, and Prejudice**
+
+### **1. Data Source**
+
+* **Primary Database:** The authors utilize individualized donation data from **two major charitable organizations** (Charity 1 and Charity 2) covering the periods 2004–2017 and 2010–2017, respectively.
+* **Supplementary Sources:** They employ data from the **American Community Survey (ACS)** regarding intermarriage rates to estimate and correct for potential misclassification errors in ethnicity inference.
+
+### **2. Algorithms**
+
+The authors employed a specific commercial algorithm to assist in classification:
+
+* **NamSor:** An organization that uses **machine learning techniques** trained on historical census data to classify names by ethnicity, gender, and religion.
+
+### **3. Inference Behavior (Rate & Errors)**
+
+* **Target Classification:** The authors specifically isolate donors with **European-origin names** to approximate a population of White "natives" and to exclude diaspora donations (e.g., a person donating to their own ancestral country).
+* **False Positives:** The authors identify a specific risk where women of non-European ancestry are misclassified as European because they adopted the surname of a European-ancestry spouse.
+* **Correction:** To address this, they statistically subtracted estimated donations from these misclassified donors using intermarriage data; they found the results remained virtually identical with this correction.
+
+### **4. Special Steps**
+
+To ensure high data quality and validity, the authors implemented several specific filtering and robustness steps:
+
+* **ISO Standardization:** They restricted the sample to donors matched to countries classified as **European** by the International Organization for Standardization (ISO).
+* **Gender Robustness:** To verify that name changes due to marriage did not skew results, they conducted robustness checks limiting the sample strictly to **men**, finding that estimates remained similar.
+* **"White Flight" Index:** They constructed a specific index using **30 years of census data** to test for "selective White flight," ensuring that results were not driven by natives systematically moving away from areas with larger immigrant populations.
+
+
 # **Minimum Viable Signal: Venture Funding, Social Movements, and Race**
 
 ### **1. Data Source**
